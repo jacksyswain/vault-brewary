@@ -18,14 +18,18 @@ export default function Navbar() {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 bg-transparent backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <nav className="relative z-40 bg-[#f3b26a] border-b border-black/20">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-          {/* LOGO */}
-          <img src={logo} alt="Logo" className="h-10 md:h-12" />
+          {/* LOGO BIG */}
+          <img
+            src={logo}
+            alt="Logo"
+            className="h-14 md:h-16 cursor-pointer"
+          />
 
           {/* DESKTOP MENU */}
-          <div className="hidden md:flex gap-2 bg-white/10 backdrop-blur-xl p-2 rounded-full">
+          <div className="hidden md:flex gap-2 bg-black p-2 rounded-full">
             {links.map((link) => (
               <Link
                 key={link.path}
@@ -33,8 +37,8 @@ export default function Navbar() {
                 className={`px-4 py-2 rounded-full text-sm tracking-wide transition
                   ${
                     pathname === link.path
-                      ? "bg-gold text-black"
-                      : "text-white/80 hover:bg-white/10 hover:text-white"
+                      ? " z-40 bg-[#f3b26a] text-black"
+                      : "text-white hover:bg-black/10"
                   }`}
               >
                 {link.name}
@@ -47,30 +51,32 @@ export default function Navbar() {
             className="md:hidden flex flex-col gap-1"
             onClick={() => setOpen(true)}
           >
-            <span className="w-6 h-[2px] bg-white"></span>
-            <span className="w-6 h-[2px] bg-white"></span>
-            <span className="w-6 h-[2px] bg-white"></span>
+            <span className="w-6 h-[2px] bg-black"></span>
+            <span className="w-6 h-[2px] bg-black"></span>
+            <span className="w-6 h-[2px] bg-black"></span>
           </button>
         </div>
       </nav>
 
       {/* MOBILE MENU */}
       <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-2xl z-50 transition-all duration-300 ${
+        className={`fixed inset-0 bg-[#f3b26a] z-50 transition-all duration-300 ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        <div className="flex justify-between items-center px-6 py-4 border-b border-white/10">
-          <img src={logo} className="h-10" />
+        {/* HEADER */}
+        <div className="flex justify-between items-center px-6 py-4 border-b border-black/20">
+          <img src={logo} className="h-14" />
           <button
-            className="text-white text-3xl"
+            className="text-black text-3xl"
             onClick={() => setOpen(false)}
           >
             ×
           </button>
         </div>
 
-        <div className="flex flex-col items-center justify-center h-full gap-8 text-lg tracking-wide">
+        {/* MENU */}
+        <div className="flex flex-col items-center gap-8 text-lg tracking-wide py-12 overflow-y-auto h-full">
           {links.map((link) => (
             <Link
               key={link.path}
@@ -78,8 +84,8 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className={`transition ${
                 pathname === link.path
-                  ? "text-gold"
-                  : "text-white/80 hover:text-gold"
+                  ? "text-black font-semibold"
+                  : "text-black/70 hover:text-black"
               }`}
             >
               {link.name}

@@ -1,14 +1,147 @@
 import React from "react";
-
+import {
+  FiMapPin,
+  FiClock,
+  FiPhone,
+  FiMail,
+  FiFacebook,
+  FiInstagram,
+  FiYoutube
+} from "react-icons/fi";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gold/30 text-center py-10 mt-20">
-      <img src={logo} className="h-12 mx-auto mb-4" />
-      <p className="text-sm text-gray-400">
-        © 2026 Vault Brewery · Hyderabad
-      </p>
+    <footer className="relative bg-[#f3b26a] text-black overflow-hidden">
+
+      {/* PATTERN OVERLAY */}
+      <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-20 pointer-events-none"></div>
+
+      {/* CONTENT */}
+      <div className="relative max-w-7xl mx-auto px-8 py-12">
+
+        {/* TOP GRID */}
+        <div className="grid md:grid-cols-5 gap-x-10 gap-y-8 items-start">
+
+          {/* LOGO */}
+          <div>
+            <img src={logo} className="h-16 mb-2" />
+          </div>
+
+          {/* QUICK LINKS */}
+          <div>
+            <h4 className="font-bold tracking-widest text-sm mb-3">
+              QUICK LINKS
+            </h4>
+            <div className="space-y-2 text-sm font-medium">
+              <Link to="/" className="block hover:underline">Home</Link>
+              <Link to="/about" className="block hover:underline">About</Link>
+              <Link to="/events" className="block hover:underline">Events</Link>
+              <Link to="/menu" className="block hover:underline">Menu</Link>
+              <Link to="/booking" className="block hover:underline">Booking</Link>
+            </div>
+          </div>
+
+          {/* LOCATION */}
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="bg-[#b33b1e] text-white p-2 rounded-full">
+                <FiMapPin size={14} />
+              </div>
+              <h4 className="font-bold tracking-widest text-sm">LOCATION</h4>
+            </div>
+            <p className="text-sm leading-relaxed font-medium">
+              Plot No. 644, Road No. 36,<br />
+              Jubilee Hills, Hyderabad
+            </p>
+          </div>
+
+          {/* TIMINGS */}
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="bg-[#b33b1e] text-white p-2 rounded-full">
+                <FiClock size={14} />
+              </div>
+              <h4 className="font-bold tracking-widest text-sm">TIMINGS</h4>
+            </div>
+            <p className="text-sm leading-relaxed font-medium">
+              Sun–Thu: 12PM – 11:45PM<br />
+              Fri–Sat: 12PM – 1AM
+            </p>
+          </div>
+
+          {/* POLICIES */}
+          <div className="space-y-2 text-sm font-semibold">
+            <p>Terms of Service</p>
+            <p>Privacy Statement</p>
+            <p>Shipping Policy</p>
+            <p>Refund Policy</p>
+          </div>
+
+        </div>
+
+        {/* SECOND ROW */}
+        <div className="grid md:grid-cols-5 gap-x-10 gap-y-8 mt-8">
+
+          <div></div>
+          <div></div>
+
+          {/* PHONE */}
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="bg-[#b33b1e] text-white p-2 rounded-full">
+                <FiPhone size={14} />
+              </div>
+              <h4 className="font-bold tracking-widest text-sm">RSVP / BOOKINGS</h4>
+            </div>
+            <p className="text-sm font-medium">
+              +91 80080 80444
+            </p>
+          </div>
+
+          {/* EMAIL */}
+          <div>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="bg-[#b33b1e] text-white p-2 rounded-full">
+                <FiMail size={14} />
+              </div>
+              <h4 className="font-bold tracking-widest text-sm">FOR ENQUIRIES</h4>
+            </div>
+            <p className="text-sm font-medium">
+              sales@vaulthyd.com
+            </p>
+          </div>
+
+          <div></div>
+
+        </div>
+
+      </div>
+
+      {/* BOTTOM BAR */}
+      <div className="relative border-t border-black/20">
+
+        {/* SOCIAL ICONS */}
+        <div className="max-w-7xl mx-auto px-8 pt-3 pb-2 flex justify-center gap-5">
+          <div className="bg-[#b33b1e] text-white p-2 rounded-full hover:scale-110 transition">
+            <FiFacebook size={14} />
+          </div>
+          <div className="bg-[#b33b1e] text-white p-2 rounded-full hover:scale-110 transition">
+            <FiInstagram size={14} />
+          </div>
+          <div className="bg-[#b33b1e] text-white p-2 rounded-full hover:scale-110 transition">
+            <FiYoutube size={14} />
+          </div>
+        </div>
+
+        {/* COPYRIGHT */}
+        <p className="text-center text-xs tracking-widest pb-3">
+          © 2026 Vault Brewery Hyderabad. All Rights Reserved.
+        </p>
+
+      </div>
+
     </footer>
   );
 }
