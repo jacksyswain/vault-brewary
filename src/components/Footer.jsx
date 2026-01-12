@@ -10,14 +10,19 @@ import {
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import pattern from "../assets/pattern.png";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#f3b26a] text-black overflow-hidden">
-
-      {/* PATTERN OVERLAY */}
-      <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-20 pointer-events-none"></div>
-
+    <footer
+      className="relative text-black overflow-hidden"
+      style={{
+        backgroundImage: `url(${pattern})`,
+        backgroundRepeat: "repeat",
+        backgroundSize: "200px",
+        backgroundPosition: "center",
+      }}
+    >
       {/* CONTENT */}
       <div className="relative max-w-7xl mx-auto px-8 py-12">
 
@@ -46,9 +51,7 @@ export default function Footer() {
           {/* LOCATION */}
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="bg-[#b33b1e] text-white p-2 rounded-full">
-                <FiMapPin size={14} />
-              </div>
+              <FiMapPin size={16} />
               <h4 className="font-bold tracking-widest text-sm">LOCATION</h4>
             </div>
             <p className="text-sm leading-relaxed font-medium">
@@ -60,9 +63,7 @@ export default function Footer() {
           {/* TIMINGS */}
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="bg-[#b33b1e] text-white p-2 rounded-full">
-                <FiClock size={14} />
-              </div>
+              <FiClock size={16} />
               <h4 className="font-bold tracking-widest text-sm">TIMINGS</h4>
             </div>
             <p className="text-sm leading-relaxed font-medium">
@@ -90,9 +91,7 @@ export default function Footer() {
           {/* PHONE */}
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="bg-[#b33b1e] text-white p-2 rounded-full">
-                <FiPhone size={14} />
-              </div>
+              <FiPhone size={16} />
               <h4 className="font-bold tracking-widest text-sm">RSVP / BOOKINGS</h4>
             </div>
             <p className="text-sm font-medium">
@@ -103,9 +102,7 @@ export default function Footer() {
           {/* EMAIL */}
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <div className="bg-[#b33b1e] text-white p-2 rounded-full">
-                <FiMail size={14} />
-              </div>
+              <FiMail size={16} />
               <h4 className="font-bold tracking-widest text-sm">FOR ENQUIRIES</h4>
             </div>
             <p className="text-sm font-medium">
@@ -124,15 +121,9 @@ export default function Footer() {
 
         {/* SOCIAL ICONS */}
         <div className="max-w-7xl mx-auto px-8 pt-3 pb-2 flex justify-center gap-5">
-          <div className="bg-[#b33b1e] text-white p-2 rounded-full hover:scale-110 transition">
-            <FiFacebook size={14} />
-          </div>
-          <div className="bg-[#b33b1e] text-white p-2 rounded-full hover:scale-110 transition">
-            <FiInstagram size={14} />
-          </div>
-          <div className="bg-[#b33b1e] text-white p-2 rounded-full hover:scale-110 transition">
-            <FiYoutube size={14} />
-          </div>
+          <FiFacebook size={18} className="hover:scale-110 transition" />
+          <FiInstagram size={18} className="hover:scale-110 transition" />
+          <FiYoutube size={18} className="hover:scale-110 transition" />
         </div>
 
         {/* COPYRIGHT */}

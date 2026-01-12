@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
+import pattern from "../assets/pattern.png"; // 🔥 background pattern image
 
 export default function Navbar() {
   const { pathname } = useLocation();
@@ -18,7 +19,15 @@ export default function Navbar() {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="relative z-40 bg-[#f3b26a] border-b border-black/20">
+      <nav
+        className="relative z-40 border-b border-black/20"
+        style={{
+          backgroundImage: `url(${pattern})`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "200px",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
           {/* LOGO BIG */}
@@ -37,7 +46,7 @@ export default function Navbar() {
                 className={`px-4 py-2 rounded-full text-sm tracking-wide transition
                   ${
                     pathname === link.path
-                      ? " z-40 bg-[#f3b26a] text-black"
+                      ? "z-40 bg-[#f3b26a] text-black"
                       : "text-white hover:bg-black/10"
                   }`}
               >
@@ -60,12 +69,18 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       <div
-        className={`fixed inset-0 bg-[#f3b26a] z-50 transition-all duration-300 ${
+        className={`fixed inset-0 z-50 transition-all duration-300 ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
+        style={{
+          backgroundImage: `url(${pattern})`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "200px",
+          backgroundPosition: "center",
+        }}
       >
         {/* HEADER */}
-        <div className="flex justify-between items-center px-6 py-4 border-b border-black/20">
+        <div className="flex justify-between items-center px-6 py-4 border-b border-black/20 bg-[#f3b26a]/90 backdrop-blur">
           <img src={logo} className="h-14" />
           <button
             className="text-black text-3xl"
@@ -76,7 +91,7 @@ export default function Navbar() {
         </div>
 
         {/* MENU */}
-        <div className="flex flex-col items-center gap-8 text-lg tracking-wide py-12 overflow-y-auto h-full">
+        <div className="flex flex-col items-center gap-8 text-lg tracking-wide py-12 overflow-y-auto h-full bg-[#f3b26a]/90 backdrop-blur">
           {links.map((link) => (
             <Link
               key={link.path}
