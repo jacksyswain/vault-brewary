@@ -1,9 +1,14 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-.section-title {
-  text-align: center;
+body {
+  background-color: #FBD3A2;
+  background-image: url("/src/assets/background.png");
+  background-repeat: repeat;
+  background-size: 200px;
+  background-position: center;
+  margin: 0;
+  padding: 0;
 }
+.section-title { text-align: center; }

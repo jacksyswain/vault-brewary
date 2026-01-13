@@ -1,15 +1,15 @@
-import React from "react"
-import { Routes, Route } from "react-router-dom"
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-import Home from "./pages/Home"
-import About from "./pages/About"
-import Events from "./pages/Events"
-import Menu from "./pages/Menu"
-import Booking from "./pages/Booking"
-import Admin from "./pages/Admin"
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Events from "./pages/Events";
+import Menu from "./pages/Menu";
+import Booking from "./pages/Booking";
+import Admin from "./pages/Admin";
 
 export default function App() {
   return (
@@ -29,5 +29,5 @@ export default function App() {
 
       <Footer />
     </>
-  )
+  );
 }

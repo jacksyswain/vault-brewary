@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import pattern from "../assets/pattern.png"; // 🔥 background pattern image
+import pattern from "../assets/pattern.png";
 
 export default function Navbar() {
   const { pathname } = useLocation();
@@ -20,34 +20,37 @@ export default function Navbar() {
     <>
       {/* NAVBAR */}
       <nav
-        className="relative z-40 border-b border-black/20"
+        className="relative z-40"
         style={{
           backgroundImage: `url(${pattern})`,
           backgroundRepeat: "repeat",
-          backgroundSize: "200px",
+          backgroundSize: "220px",
           backgroundPosition: "center",
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* SOFT OVERLAY (PATTERN VISIBLE) */}
+        <div className="absolute inset-0 bg-black/45 backdrop-blur-[1px]"></div>
 
-          {/* LOGO BIG */}
+        <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+          {/* LOGO */}
           <img
             src={logo}
             alt="Logo"
-            className="h-14 md:h-16 cursor-pointer"
+            className="h-16 md:h-18 cursor-pointer drop-shadow-lg"
           />
 
           {/* DESKTOP MENU */}
-          <div className="hidden md:flex gap-2 bg-black p-2 rounded-full">
+          <div className="hidden md:flex gap-2 bg-black/55 backdrop-blur-xl p-2 rounded-full shadow-lg">
             {links.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-full text-sm tracking-wide transition
+                className={`px-5 py-2 rounded-full text-sm tracking-wide transition
                   ${
                     pathname === link.path
-                      ? "z-40 bg-[#f3b26a] text-black"
-                      : "text-white hover:bg-black/10"
+                      ? "bg-[#f3b26a] text-black font-semibold"
+                      : "text-[#f3b26a] hover:bg-white/10"
                   }`}
               >
                 {link.name}
@@ -60,10 +63,11 @@ export default function Navbar() {
             className="md:hidden flex flex-col gap-1"
             onClick={() => setOpen(true)}
           >
-            <span className="w-6 h-[2px] bg-black"></span>
-            <span className="w-6 h-[2px] bg-black"></span>
-            <span className="w-6 h-[2px] bg-black"></span>
+            <span className="w-6 h-[2px] bg-[#f3b26a]"></span>
+            <span className="w-6 h-[2px] bg-[#f3b26a]"></span>
+            <span className="w-6 h-[2px] bg-[#f3b26a]"></span>
           </button>
+
         </div>
       </nav>
 
@@ -75,15 +79,17 @@ export default function Navbar() {
         style={{
           backgroundImage: `url(${pattern})`,
           backgroundRepeat: "repeat",
-          backgroundSize: "200px",
-          backgroundPosition: "center",
+          backgroundSize: "220px",
         }}
       >
+        {/* SOFT OVERLAY */}
+        <div className="absolute inset-0 bg-black/55 backdrop-blur-[1px]"></div>
+
         {/* HEADER */}
-        <div className="flex justify-between items-center px-6 py-4 border-b border-black/20 bg-[#f3b26a]/90 backdrop-blur">
+        <div className="relative flex justify-between items-center px-6 py-4 border-b border-white/10">
           <img src={logo} className="h-14" />
           <button
-            className="text-black text-3xl"
+            className="text-[#f3b26a] text-3xl"
             onClick={() => setOpen(false)}
           >
             ×
@@ -91,7 +97,7 @@ export default function Navbar() {
         </div>
 
         {/* MENU */}
-        <div className="flex flex-col items-center gap-8 text-lg tracking-wide py-12 overflow-y-auto h-full bg-[#f3b26a]/90 backdrop-blur">
+        <div className="relative flex flex-col items-center justify-center h-full gap-8 text-lg tracking-widest">
           {links.map((link) => (
             <Link
               key={link.path}
@@ -99,8 +105,8 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className={`transition ${
                 pathname === link.path
-                  ? "text-black font-semibold"
-                  : "text-black/70 hover:text-black"
+                  ? "text-[#f3b26a] font-semibold"
+                  : "text-white/80 hover:text-[#f3b26a]"
               }`}
             >
               {link.name}

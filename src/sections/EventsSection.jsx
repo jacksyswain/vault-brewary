@@ -1,14 +1,14 @@
-import React from "react"
-import { motion } from "framer-motion"
-import { eventsData } from "../data/eventsData"
-import { Card, CardContent } from "../components/ui/card"
+import React from "react";
+import { motion } from "framer-motion";
+import { eventsData } from "../data/eventsData";
+import { Card, CardContent } from "../components/ui/card";
 
 export default function EventsSection() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-transparent">
 
       {/* TITLE */}
-      <h2 className="section-title text-center mb-12">
+      <h2 className="section-title text-center mb-12 text-black">
         Upcoming Events
       </h2>
 
@@ -24,7 +24,7 @@ export default function EventsSection() {
           {eventsData.map((e, i) => (
             <Card
               key={i}
-              className="min-w-[280px] border-0 bg-[#111] shadow-none"
+              className="min-w-[280px] bg-white/80 backdrop-blur border border-black/10 shadow-md"
             >
               <CardContent className="flex flex-col items-center text-center">
 
@@ -34,11 +34,11 @@ export default function EventsSection() {
                   alt={e.title}
                 />
 
-                <h3 className="text-gold text-lg tracking-wide">
+                <h3 className="text-[#b87333] text-lg tracking-wide font-semibold">
                   {e.title}
                 </h3>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-700 text-sm">
                   {e.desc}
                 </p>
 
@@ -49,5 +49,5 @@ export default function EventsSection() {
 
       </div>
     </section>
-  )
+  );
 }
