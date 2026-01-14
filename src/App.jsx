@@ -13,10 +13,18 @@ import Admin from "./pages/Admin";
 
 export default function App() {
   return (
-    <>
+    <div className="relative min-h-screen overflow-hidden">
+
+      {/* BACKGROUND PARTICLES / GLOW LAYER */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="bg-particles"></div>
+      </div>
+
+      {/* NAVBAR */}
       <Navbar />
 
-      <main className="min-h-screen pt-20">
+      {/* MAIN CONTENT */}
+      <main className="relative z-10 min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -27,7 +35,9 @@ export default function App() {
         </Routes>
       </main>
 
+      {/* FOOTER */}
       <Footer />
-    </>
+
+    </div>
   );
 }

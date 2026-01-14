@@ -29,7 +29,7 @@ export default function Navbar() {
         }}
       >
         {/* SOFT OVERLAY (PATTERN VISIBLE) */}
-        <div className="absolute inset-0 bg-black/45 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-black/25 backdrop-blur-[0.2px]"></div>
 
         <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
@@ -83,7 +83,7 @@ export default function Navbar() {
         }}
       >
         {/* SOFT OVERLAY */}
-        <div className="absolute inset-0 bg-black/55 backdrop-blur-[1px]"></div>
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-[0.5px]"></div>
 
         {/* HEADER */}
         <div className="relative flex justify-between items-center px-6 py-4 border-b border-white/10">

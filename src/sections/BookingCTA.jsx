@@ -5,7 +5,7 @@ export default function BookingCTA() {
   return (
     <section className="py-32 bg-transparent text-center">
 
-      <h2 className="text-4xl text-[#b87333] font-bold mb-4 tracking-wide">
+      <h2 className="text-4xl text-[#C78A2D] font-bold mb-4 tracking-wide">
         Reserve Your Night
       </h2>
 

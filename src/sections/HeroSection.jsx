@@ -6,7 +6,6 @@ export default function HeroSection() {
   return (
     <section className="relative h-screen flex items-center justify-center">
 
-      {/* VIDEO BACKGROUND */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src={heroVideo}
@@ -15,12 +14,10 @@ export default function HeroSection() {
         muted
       />
 
-      {/* VERY LIGHT OVERLAY (optional for readability) */}
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-black/40" />
 
-      {/* CONTENT */}
       <div className="relative z-10 text-center">
-        <h1 className="text-6xl text-gold font-bold tracking-widest">
+        <h1 className="text-6xl text-[#E6B65C] font-bold tracking-widest">
           VAULT BREWERY
         </h1>
 
