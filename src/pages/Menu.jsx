@@ -14,6 +14,7 @@ const beverages = [c2, c3, c1];
 
 const Section = ({ title, direction, images, desc }) => (
   <section className="py-20 bg-black text-white overflow-hidden">
+
     <h2 className="text-center text-3xl text-gold font-semibold mb-4">
       {title}
     </h2>
@@ -25,24 +26,46 @@ const Section = ({ title, direction, images, desc }) => (
     )}
 
     <motion.div
-      className="flex gap-6"
+      className="flex gap-6 whitespace-nowrap"
       animate={{
-        x: direction === "left" ? ["100%", "-100%"] : ["-100%", "100%"],
+        x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"],
       }}
       transition={{
         repeat: Infinity,
+        repeatType: "loop",
         duration: 30,
         ease: "linear",
       }}
     >
+
+      {/* FIRST SET */}
       {images.map((img, i) => (
         <div
-          key={i}
+          key={`first-${i}`}
           className="min-w-[280px] bg-[#111] border border-gold/30 overflow-hidden rounded-xl"
         >
-          <img src={img} className="h-48 w-full object-cover" />
+          <img
+            src={img}
+            className="h-48 w-full object-cover"
+            alt={title}
+          />
         </div>
       ))}
+
+      {/* DUPLICATE SET */}
+      {images.map((img, i) => (
+        <div
+          key={`second-${i}`}
+          className="min-w-[280px] bg-[#111] border border-gold/30 overflow-hidden rounded-xl"
+        >
+          <img
+            src={img}
+            className="h-48 w-full object-cover"
+            alt={title}
+          />
+        </div>
+      ))}
+
     </motion.div>
   </section>
 );
@@ -52,10 +75,11 @@ export default function Menu() {
     <div className="bg-black">
 
       {/* HERO */}
-       <section className="relative h-[50vh] flex items-center justify-center text-center">
+      <section className="relative h-[50vh] flex items-center justify-center text-center">
         <img
           src={heroImg}
           className="absolute inset-0 w-full h-full object-cover opacity-40"
+          alt="Menu"
         />
         <div className="relative z-10 px-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-widest text-gold">
