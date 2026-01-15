@@ -17,7 +17,7 @@ export default function MenuSection() {
           transition={{
             repeat: Infinity,
             repeatType: "loop",
-            duration: 28,
+            duration: 10,
             ease: "linear"
           }}
         >

@@ -17,7 +17,7 @@ export default function EventsSection() {
           transition={{
             repeat: Infinity,
             repeatType: "loop",
-            duration: 30,
+            duration: 10,
             ease: "linear"
           }}
         >

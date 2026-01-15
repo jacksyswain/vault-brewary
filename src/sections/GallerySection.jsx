@@ -17,7 +17,7 @@ export default function GallerySection() {
           transition={{
             repeat: Infinity,
             repeatType: "loop",
-            duration: 35,
+            duration: 10,
             ease: "linear"
           }}
         >

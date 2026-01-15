@@ -17,14 +17,18 @@ import ch3 from "../assets/menu/ch3.png";
 import cnt3 from "../assets/menu/cnt3.png";
 import cnt2 from "../assets/menu/cnt2.png";
 import cnt1 from "../assets/menu/cnt1.png";
+import cok1 from "../assets/menu/cok1.png";
+import cok2 from "../assets/menu/cok2.png";
+import cok3 from "../assets/menu/cok3.png";
+import ind1 from "../assets/menu/ind1.png";
 
 import heroImg from "../assets/menu.png";
 
 const chinese = [ch1, ch2, ch3];
 const continental = [cnt2, cnt3, cnt1];
-const indian = [c3, c1, c2];
+const indian = [ind1, ind1, ind1];
 const beer = [beer1, beer2, beer3,beer4,beer5,beer6];
-const beverages = [c2, c3, c1];
+const beverages = [cok2, cok3, cok1];
 
 const Section = ({ title, direction, images, desc }) => (
   <section className="py-20 bg-black text-white overflow-hidden">
