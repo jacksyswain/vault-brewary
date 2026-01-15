@@ -1,8 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import heroImg from "../assets/event1.jpeg";
 import pattern from "../assets/background.png";
 
 export default function Booking() {
+
+  const todayObj = new Date();
+
+  // Generate next 14 days
+  const dates = Array.from({ length: 14 }, (_, i) => {
+    const d = new Date();
+    d.setDate(todayObj.getDate() + i);
+    return d;
+  });
+
+  const formatDate = (d) =>
+    d.toISOString().split("T")[0];
+
+  const displayDate = (d) =>
+    d.toDateString();
+
+ 
+  const generateTimes = () => {
+    const times = [];
+    for (let h = 12; h <= 22; h++) {
+      for (let m = 0; m < 60; m += 30) {
+        const hh = h.toString().padStart(2, "0");
+        const mm = m.toString().padStart(2, "0");
+        times.push(`${hh}:${mm}`);
+      }
+    }
+    return times;
+  };
+
+  const timeSlots = generateTimes();
+
+  const todayStr = formatDate(todayObj);
+  const currentTime = todayObj.toTimeString().slice(0, 5);
+
+  const [selectedDate, setSelectedDate] = useState(todayStr);
+  const [selectedTime, setSelectedTime] = useState("");
+
   return (
     <div className="bg-black text-white">
 
@@ -36,7 +73,6 @@ export default function Booking() {
         >
           <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
 
-       
           <div className="relative z-10">
 
             <h2 className="text-2xl text-gold font-semibold text-center mb-10">
@@ -69,15 +105,36 @@ export default function Booking() {
                 className="bg-black border border-gold/20 p-3 rounded text-white outline-none"
               />
 
-              <input
-                type="date"
+              {/* DATE SELECT */}
+              <select
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
                 className="bg-black border border-gold/20 p-3 rounded text-white outline-none"
-              />
+              >
+                {dates.map((d, i) => (
+                  <option key={i} value={formatDate(d)}>
+                    {i === 0 ? "Today - " : ""}{displayDate(d)}
+                  </option>
+                ))}
+              </select>
 
-              <input
-                type="time"
+              {/* TIME SELECT */}
+              <select
+                value={selectedTime}
+                onChange={(e) => setSelectedTime(e.target.value)}
                 className="bg-black border border-gold/20 p-3 rounded text-white outline-none"
-              />
+              >
+                <option value="">Select Time</option>
+
+                {timeSlots.map((t, i) => {
+                  if (selectedDate === todayStr && t < currentTime) return null;
+                  return (
+                    <option key={i} value={t}>
+                      {t}
+                    </option>
+                  );
+                })}
+              </select>
 
               <select className="bg-black border border-gold/20 p-3 rounded text-white outline-none md:col-span-2">
                 <option>Preferred Section</option>
