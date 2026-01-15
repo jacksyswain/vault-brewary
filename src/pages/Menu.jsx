@@ -1,15 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
+import PrimaryButton from "../components/BookingButton";
 
 import c1 from "../assets/event1.jpeg";
 import c2 from "../assets/event2.jpeg";
 import c3 from "../assets/event3.jpeg";
+import beer1 from "../assets/menu/beer1.png";
+import beer2 from "../assets/menu/beer2.png";
+import beer3 from "../assets/menu/beer3.png";
+import beer4 from "../assets/menu/beer4.png";
+import beer5 from "../assets/menu/beer5.png";
+import beer6 from "../assets/menu/beer6.png";
+import ch1 from "../assets/menu/ch1.png";
+import ch2 from "../assets/menu/ch2.png";
+import ch3 from "../assets/menu/ch3.png";
+import cnt3 from "../assets/menu/cnt3.png";
+import cnt2 from "../assets/menu/cnt2.png";
+import cnt1 from "../assets/menu/cnt1.png";
+
 import heroImg from "../assets/menu.png";
 
-const chinese = [c1, c2, c3];
-const continental = [c2, c3, c1];
+const chinese = [ch1, ch2, ch3];
+const continental = [cnt2, cnt3, cnt1];
 const indian = [c3, c1, c2];
-const beer = [c1, c2, c3];
+const beer = [beer1, beer2, beer3,beer4,beer5,beer6];
 const beverages = [c2, c3, c1];
 
 const Section = ({ title, direction, images, desc }) => (
@@ -139,12 +153,9 @@ export default function Menu() {
         <p className="text-gray-400 mb-6">
           Every dish. Every sip. Crafted perfectly.
         </p>
-        <a
-          href="/booking"
-          className="inline-block bg-gold text-black px-8 py-3 tracking-widest hover:opacity-90 transition rounded-full"
-        >
-          BOOK A TABLE
-        </a>
+
+        <PrimaryButton text="BOOK A TABLE" />
+
       </section>
 
     </div>

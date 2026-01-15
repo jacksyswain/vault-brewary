@@ -1,9 +1,11 @@
 import React from "react";
-import hero   from "../assets/ehero1.png";
+import hero from "../assets/ehero1.png";
 import event1 from "../assets/event1.jpeg";
 import event2 from "../assets/event2.jpeg";
 import event3 from "../assets/event3.jpeg";
 import event4 from "../assets/event4.jpeg";
+
+import PrimaryButton from "../components/BookingButton";
 
 export default function Events() {
   const events = [
@@ -59,11 +61,10 @@ export default function Events() {
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
           {events.map((e, i) => (
             <div
               key={i}
-              className="bg-[#111] border border-gold/30 overflow-hidden group"
+              className="bg-[#111] border border-gold/30 overflow-hidden group rounded-lg"
             >
               <div className="overflow-hidden">
                 <img
@@ -79,7 +80,6 @@ export default function Events() {
               </div>
             </div>
           ))}
-
         </div>
       </section>
 
@@ -120,12 +120,9 @@ export default function Events() {
         <p className="text-gray-400 mb-6">
           Celebrate nights that you will never forget.
         </p>
-        <a
-          href="/booking"
-          className="inline-block bg-gold text-black px-8 py-3 tracking-widest hover:opacity-90 transition"
-        >
-          BOOK NOW
-        </a>
+
+        <PrimaryButton text="BOOK NOW" />
+
       </section>
 
     </div>
