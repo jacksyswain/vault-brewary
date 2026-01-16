@@ -3,34 +3,37 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import i1 from "../assets/gallery1.png";
 import i2 from "../assets/menu1.png";
-import i3 from "../assets/gallery3.png";
+import i3 from "../assets/gallery2.png";
 import i4 from "../assets/gallery4.png";
 import i5 from "../assets/event1.jpeg";
 import i6 from "../assets/event2.jpeg";
+import i7 from "../assets/gallery5.png";
+import i8 from "../assets/cock1.png";
+
 
 const data = [
   {
     title: "Premium Ambience",
-    desc: "Luxury interiors crafted for unforgettable nights.",
-    images: [i1, i5],
+    desc: "At Vault Brewery, we’ve created an atmosphere that’s as inviting as our brews. Come take a seat in our beautifully designed space and enjoy a pint with friends. Cheers to good times and great beer!",
+    images: [i1, i7],
     side: "left",
   },
   {
     title: "Crafted Cocktails",
-    desc: "Signature blends curated by expert mixologists.",
-    images: [i2, i6],
+    desc: "Signature blends The delicate floral notes of butterfly pea gin are beautifully balanced by the fruity sweetness of blueberries and the zesty tang of cranberry. With fresh mint adding a cooling touch, every sip is a perfect balance of light and refreshing, with just enough boldness to keep things exciting.",
+    images: [i2, i8],
     side: "right",
   },
   {
     title: "Live Music",
     desc: "Top DJs and bands lighting up the Vault nights.",
-    images: [i3, i5],
+    images: [i6, i5],
     side: "left",
   },
   {
     title: "Elite Crowd",
     desc: "A premium crowd with unmatched nightlife energy.",
-    images: [i4, i6],
+    images: [i4, i3],
     side: "right",
   },
 ];
