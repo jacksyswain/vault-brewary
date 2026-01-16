@@ -10,8 +10,9 @@ export default function Home() {
   return (
     <div className="w-full overflow-hidden bg-[#050b1a]">
       <HeroSection />
-      <ExperienceStrip />
+      
       <EventsSection />
+      <ExperienceStrip />
       <GallerySection />
       <MenuSection />
       <BookingCTA />
