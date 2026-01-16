@@ -1,36 +1,56 @@
 import React from "react";
+import { motion } from "framer-motion";
 import logo from "../assets/logo.png";
-import aboutImg from "../assets/event1.jpeg"; // you can change later
+import aboutImg from "../assets/event1.jpeg";
+import ExperienceStrip from "../sections/ExperienceStrip";
 
 export default function About() {
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white overflow-hidden">
 
-      {/* HERO SECTION */}
-      <section className="relative h-[60vh] flex items-center justify-center text-center">
+      {/* HERO */}
+      <section className="relative h-[65vh] flex items-center justify-center text-center">
         <img
           src={aboutImg}
           alt="Vault Brewery"
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
-        <div className="relative z-10 px-6">
+        <div className="absolute inset-0 bg-black/50"></div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="relative z-10 px-6"
+        >
           <img src={logo} className="h-24 mx-auto mb-6" />
           <h1 className="text-4xl md:text-6xl font-bold tracking-widest text-gold">
             VAULT BREWERY
           </h1>
-          <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-gray-300 max-w-2xl mx-auto text-lg">
             Hyderabad’s Premium Craft Brewery & Nightlife Destination
           </p>
-        </div>
+        </motion.div>
       </section>
 
-      {/* ABOUT CONTENT */}
-      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-3xl text-gold font-semibold mb-6">
+      {/* STORY */}
+      <section className="max-w-6xl mx-auto px-6 py-24 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl text-gold font-semibold mb-6"
+        >
           Our Story
-        </h2>
+        </motion.h2>
 
-        <p className="text-gray-300 leading-relaxed max-w-3xl mx-auto">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-gray-300 leading-relaxed max-w-3xl mx-auto"
+        >
           Located in the heart of Jubilee Hills, Vault Brewery Hyderabad is a
           premium brewery and nightlife destination known for its craft beers,
           signature cocktails, vibrant music, and unforgettable ambience.
@@ -38,50 +58,78 @@ export default function About() {
           From relaxed weekday evenings to energetic weekend nights, Vault
           brings together food lovers, music enthusiasts, and party seekers
           under one roof.
-        </p>
+        </motion.p>
       </section>
 
-      {/* EXPERIENCE STRIP */}
-      <section className="bg-[#0b0b0b] py-16">
+      {/* EXPERIENCE CARDS */}
+      <section className="py-20 bg-[#0b0b0b]">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center">
-
-          <div className="border border-gold/30 p-6">
-            <h3 className="text-gold text-xl mb-3">Craft Beers</h3>
-            <p className="text-gray-400 text-sm">
-              Freshly brewed craft beers crafted for bold and refined tastes.
-            </p>
-          </div>
-
-          <div className="border border-gold/30 p-6">
-            <h3 className="text-gold text-xl mb-3">Live Music & DJs</h3>
-            <p className="text-gray-400 text-sm">
-              Enjoy live bands, DJ nights and electrifying weekend parties.
-            </p>
-          </div>
-
-          <div className="border border-gold/30 p-6">
-            <h3 className="text-gold text-xl mb-3">Signature Dining</h3>
-            <p className="text-gray-400 text-sm">
-              Continental, Indian, Chinese and premium bar cuisine.
-            </p>
-          </div>
-
+          {[
+            {
+              title: "Craft Beers",
+              desc: "Freshly brewed craft beers crafted for bold and refined tastes."
+            },
+            {
+              title: "Live Music & DJs",
+              desc: "Enjoy live bands, DJ nights and electrifying weekend parties."
+            },
+            {
+              title: "Signature Dining",
+              desc: "Continental, Indian, Chinese and premium bar cuisine."
+            }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+              viewport={{ once: true }}
+              className="bg-black/60 border border-gold/30 p-8 rounded-xl hover:scale-105 transition duration-300"
+            >
+              <h3 className="text-gold text-xl mb-3 tracking-wide">
+                {item.title}
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* WHY VAULT */}
-      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-3xl text-gold font-semibold mb-6">
-          Why Vault Brewery?
-        </h2>
+      {/* WHY VAULT SECTION */}
+      <section className="py-28 bg-black">
 
-        <p className="text-gray-300 leading-relaxed max-w-3xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center text-3xl md:text-4xl font-semibold tracking-widest text-gold mb-6"
+        >
+          WHY VAULT BREWERY
+        </motion.h2>
+
+        <p className="text-center text-gray-400 max-w-xl mx-auto mb-20">
+          Discover what makes Vault Hyderabad a premium nightlife destination.
+        </p>
+
+        {/* STRIP COMPONENT */}
+        <ExperienceStrip />
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-gray-300 leading-relaxed max-w-3xl mx-auto mt-20 text-center"
+        >
           Vault Brewery is more than just a brewery — it is a celebration of
           lifestyle, music, food and premium experiences. Known for its happy
           hours, weekend crowd, party ambience and warm hospitality, Vault is
           the perfect destination for celebrations, casual hangouts, corporate
           gatherings and unforgettable nights.
-        </p>
+        </motion.p>
+
       </section>
 
       {/* INFO STRIP */}
@@ -115,10 +163,15 @@ export default function About() {
       </section>
 
       {/* CLOSING */}
-      <section className="py-20 text-center">
-        <h2 className="text-2xl text-gold font-semibold mb-4">
+      <section className="py-24 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-2xl text-gold font-semibold mb-4"
+        >
           Feel the Sound. Taste the Craft. Live the Night.
-        </h2>
+        </motion.h2>
         <p className="text-gray-400">
           Welcome to Vault Brewery Hyderabad.
         </p>
