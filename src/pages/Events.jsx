@@ -44,6 +44,8 @@ export default function Events() {
           src={hero}
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
+        <div className="absolute inset-0 bg-black/40"></div>
+
         <div className="relative z-10 px-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-widest text-gold">
             EVENTS AT VAULT
@@ -60,23 +62,36 @@ export default function Events() {
           Weekly Highlights
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {events.map((e, i) => (
             <div
               key={i}
-              className="bg-[#111] border border-gold/30 overflow-hidden group rounded-lg"
+              className="relative bg-[#111] border border-gold/30 overflow-hidden group rounded-xl shadow-lg hover:shadow-gold/20 transition-all duration-500 hover:-translate-y-2"
             >
-              <div className="overflow-hidden">
+              {/* IMAGE */}
+              <div className="relative overflow-hidden">
                 <img
                   src={e.img}
-                  className="h-52 w-full object-cover group-hover:scale-110 transition duration-500"
+                  className="h-52 w-full object-cover group-hover:scale-110 transition duration-700"
                 />
+
+                {/* DAY BADGE */}
+                <span className="absolute top-3 right-3 bg-gold text-black text-xs px-3 py-1 rounded-full tracking-wide">
+                  {e.day}
+                </span>
+
+                {/* GRADIENT OVERLAY */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               </div>
 
+              {/* CONTENT */}
               <div className="p-5 text-center">
-                <h3 className="text-gold text-xl mb-2">{e.title}</h3>
-                <p className="text-gray-400 text-sm mb-3">{e.desc}</p>
-                <span className="text-xs text-gray-500">{e.day}</span>
+                <h3 className="text-gold text-xl mb-2 tracking-wide">
+                  {e.title}
+                </h3>
+                <p className="text-gray-400 text-sm mb-3 leading-relaxed">
+                  {e.desc}
+                </p>
               </div>
             </div>
           ))}
@@ -113,8 +128,8 @@ export default function Events() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 text-center">
-        <h2 className="text-2xl text-gold font-semibold mb-4">
+      <section className="py-20 text-center bg-gradient-to-b from-black to-[#0b0b0b]">
+        <h2 className="text-2xl text-gold font-semibold mb-4 tracking-wide">
           Reserve Your Table for the Next Event
         </h2>
         <p className="text-gray-400 mb-6">
@@ -122,7 +137,6 @@ export default function Events() {
         </p>
 
         <PrimaryButton text="BOOK NOW" />
-
       </section>
 
     </div>
